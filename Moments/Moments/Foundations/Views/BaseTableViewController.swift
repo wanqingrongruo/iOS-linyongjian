@@ -105,7 +105,7 @@ private extension BaseTableViewController {
     }
 
     func loadItems() {
-        self.viewModel.hasError.onNext(false)
+        viewModel.hasError.onNext(false)
         viewModel.loadItems()
             .do(onDispose: { [weak self] in
                 self?.activityIndicatorView.rx.isAnimating.onNext(false)
