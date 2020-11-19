@@ -28,7 +28,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if UIApplication.shared.isRunningUnitTests {
             window?.rootViewController = UnitTestViewController()
         } else {
-            window?.rootViewController = MomentsListViewController()
+            if InternalTogglesDataStore.shared.isToggleOn(InternalToggle.isSwiftUIEnabled) {
+
+            } else {
+                window?.rootViewController = MomentsListViewController()
+            }
         }
         window?.makeKeyAndVisible()
 
