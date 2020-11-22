@@ -38,7 +38,7 @@ struct MomentsRepo: MomentsRepoType {
         self.getMomentsByUserIDSession = getMomentsByUserIDSession
         self.updateMomentLikeSession = updateMomentLikeSession
 
-        persistentDataStore.momentsDetails.debug().compactMap { $0 }.subscribe(momentsDetails).disposed(by: disposeBag)
+        persistentDataStore.momentsDetails.compactMap { $0 }.subscribe(momentsDetails).disposed(by: disposeBag)
     }
 
     func getMoments(userID: String) -> Observable<Void> {
